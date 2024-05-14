@@ -1,23 +1,28 @@
 #include <iostream>
 #include <iomanip>
+#include "authenticator.cpp"
+
+using namespace std;
+void verify();
 
 double deposit();
 double withdraw(double balance);
 
 int main() {
-
+    verify();     
+    
     double balance = 10000;
     int choice = 0;
 
     do{
-        std::cout << "**********************\n";
+        std::cout << "\n\n**********************\n";
         std::cout << "Enter your choice:\n";
         std::cout << "**********************\n";
         std::cout << "1. Show balance\n";
         std::cout << "2. Deposit money\n";
         std::cout << "3. Withdraw money\n";
         std::cout << "4. Exit\n";
-        std::cin >> choice;
+        cin >> choice;
 
         while(choice < 1 || choice > 4){
             std::cout << "Invalid input. Please select options 1 to 4.\n";
@@ -49,16 +54,16 @@ int main() {
 double deposit() {
     std::cout << "Enter the amount you want to deposit: $";
     double depositAmount;
-    std::cin >> depositAmount;
+    cin >> depositAmount;
 
     while(depositAmount <= 0){
         std::cout << "\nInvalid input. Re-enter the amount: $";
-        std::cin >> depositAmount;
+        cin >> depositAmount;
     }
 
     while(depositAmount > 99999){
         std::cout << "\nYou have exceeded the deposit limit. Re-enter the amount: $";
-        std::cin >> depositAmount;
+        cin >> depositAmount;
     }
 
     return depositAmount; 
@@ -76,11 +81,8 @@ double withdraw(double balance) {
 
     while(withdrawAmount <= 0){
         std::cout << "\nInvalid input. Re-enter the amount: $";
-        std::cin >> withdrawAmount;
+        cin >> withdrawAmount;
     }
 
     return withdrawAmount;
 }
-
-
-
